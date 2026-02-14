@@ -1,0 +1,85 @@
+{
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "emergent-gpt": {
+        "baseUrl": "https://integrations.emergentagent.com/llm/",
+        "apiKey": "sk-emergent-93d88E440C788D7210",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "gpt-5.2",
+            "name": "GPT-5.2",
+            "reasoning": true,
+            "input": ["text"],
+            "cost": {
+              "input": 0.00000175,
+              "output": 0.000014,
+              "cacheRead": 1.75e-7,
+              "cacheWrite": 0.00000175
+            },
+            "contextWindow": 400000,
+            "maxTokens": 128000
+          }
+        ]
+      },
+      "emergent-claude": {
+        "baseUrl": "https://integrations.emergentagent.com/llm",
+        "apiKey": "sk-emergent-93d88E440C788D7210",
+        "api": "anthropic-messages",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "claude-sonnet-4-5",
+            "name": "Claude Sonnet 4.5",
+            "input": ["text"],
+            "cost": {
+              "input": 0.000003,
+              "output": 0.000015,
+              "cacheRead": 3e-7,
+              "cacheWrite": 0.00000375
+            },
+            "contextWindow": 200000,
+            "maxTokens": 64000
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "emergent-claude/claude-sonnet-4-5"
+      },
+      "workspace": "/opt/render/project/src/workspace",
+      "maxConcurrent": 2
+    }
+  },
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "allowlist",
+      "allowFrom": ["+918638556847"],
+      "groupPolicy": "allowlist",
+      "mediaMaxMb": 50
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "bind": "0.0.0.0",
+    "controlUi": {
+      "enabled": true,
+      "allowInsecureAuth": true
+    },
+    "auth": {
+      "mode": "token",
+      "token": "d72a3757cdb2110350f217b6cbfd3b4f37384bed3f1c6f1dcfe45bd59b88481a"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "whatsapp": {
+        "enabled": true
+      }
+    }
+  }
+}
