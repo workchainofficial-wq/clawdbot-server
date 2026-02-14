@@ -4,7 +4,7 @@
   "description": "Partner - 24/7 AI Assistant",
   "main": "index.js",
   "scripts": {
-    "start": "clawdbot gateway start --no-daemon",
+      "start": "clawdbot gateway start",
     "postinstall": "npm install -g clawdbot@latest"
   },
   "engines": {
