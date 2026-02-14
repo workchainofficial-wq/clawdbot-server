@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: partner-clawdbot
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLAWDBOT_CONFIG_FILE
+        value: /opt/render/project/src/clawdbot.json
+      - key: PORT
+        value: 18789
