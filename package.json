@@ -1,0 +1,16 @@
+{
+  "name": "clawdbot-server",
+  "version": "1.0.0",
+  "description": "Partner - 24/7 AI Assistant",
+  "main": "index.js",
+  "scripts": {
+    "start": "clawdbot gateway start --no-daemon",
+    "postinstall": "npm install -g clawdbot@latest"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "clawdbot": "latest"
+  }
+}
