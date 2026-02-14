@@ -4,7 +4,7 @@
   "description": "Partner - 24/7 AI Assistant",
   "main": "index.js",
   "scripts": {
-          "start": "node /opt/render/.npm-global/lib/node_modules/clawdbot/dist/cli.js gateway start --bind 0.0.0.0 --port $PORT",
+      "start": "node start.js",
     "postinstall": "npm install -g clawdbot@latest"
   },
   "engines": {
