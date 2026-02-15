@@ -1,20 +1,13 @@
 #!/usr/bin/env node
 
 const { spawn } = require('child_process');
-const path = require('path');
-
-// Find clawdbot CLI
-const clawdbotPath = path.join(
-  process.env.HOME || '/opt/render',
-  '.npm-global/lib/node_modules/clawdbot/dist/cli.js'
-);
 
 console.log('Starting Clawdbot gateway...');
 console.log('Port:', process.env.PORT || 18789);
 
-// Start gateway in foreground mode
-const gateway = spawn('node', [
-  clawdbotPath,
+// Use npx to run clawdbot (works with local dependencies)
+const gateway = spawn('npx', [
+  'clawdbot',
   'gateway',
   'start',
   '--bind',
