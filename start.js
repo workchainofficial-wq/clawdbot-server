@@ -5,11 +5,11 @@ const { spawn } = require('child_process');
 console.log('Starting Clawdbot gateway...');
 console.log('Port:', process.env.PORT || 18789);
 
-// Use npx to run clawdbot (works with local dependencies)
+// Use npx to run clawdbot in foreground mode (no systemd)
 const gateway = spawn('npx', [
   'clawdbot',
   'gateway',
-  'start',
+  'run',  // Changed from 'start' to 'run' - runs in foreground without systemd
   '--bind',
   '0.0.0.0',
   '--port',
@@ -18,7 +18,8 @@ const gateway = spawn('npx', [
   stdio: 'inherit',
   env: {
     ...process.env,
-    CLAWDBOT_NO_SYSTEMD: '1'
+    CLAWDBOT_NO_SYSTEMD: '1',
+    NODE_ENV: 'production'
   }
 });
 
