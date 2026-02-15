@@ -1,16 +1,12 @@
 #!/usr/bin/env node
 
 const { spawn } = require('child_process');
-const path = require('path');
 
 console.log('Starting Clawdbot gateway...');
 console.log('Port:', process.env.PORT || 18789);
 
-// Config file path
-const configPath = path.join(__dirname, 'config.yaml');
-
-// Use npx to run clawdbot in foreground mode
-// Config is loaded via CLAWDBOT_CONFIG_PATH environment variable
+// Run clawdbot gateway in foreground mode without config file
+// Uses environment variables and defaults
 const gateway = spawn('npx', [
   'clawdbot',
   'gateway',
@@ -19,13 +15,13 @@ const gateway = spawn('npx', [
   '0.0.0.0',
   '--port',
   process.env.PORT || '18789',
-  '--allow-unconfigured'  // Allow running without full setup
+  '--allow-unconfigured'
 ], {
   stdio: 'inherit',
   env: {
     ...process.env,
     CLAWDBOT_NO_SYSTEMD: '1',
-    CLAWDBOT_CONFIG_PATH: configPath,
+    CLAWDBOT_GATEWAY_MODE: 'local',
     NODE_ENV: 'production'
   }
 });
