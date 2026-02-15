@@ -1,0 +1,13 @@
+{
+  "gateway": {
+    "mode": "local",
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "agents": {
+    "main": {
+      "model": "emergent-claude/claude-sonnet-4-5",
+      "name": "Partner"
+    }
+  }
+}
